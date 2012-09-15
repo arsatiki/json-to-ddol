@@ -1,5 +1,5 @@
 function convert(obj) {
-	if (typeof obj != "object")
+	if (typeof obj != 'object')
 		return document.createTextNode(obj);
 	
 	if (Array.isArray(obj))
@@ -11,9 +11,13 @@ function convert(obj) {
 
 function convertArray(arr) {
 	var ol = document.createElement('ol');
+	var li;
 	var k;
-	for (k = 0; k < arr.length; k++)
-		ol.appendChild(convert(arr[k]));
+	for (k = 0; k < arr.length; k++) {
+		li = document.createElement('li');
+		li.appendChild(convert(arr[k]));
+		ol.appendChild(li);
+	}
 	return ol;
 }
 
